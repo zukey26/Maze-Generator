@@ -87,22 +87,22 @@ input("Press enter to start drawing. ")
 done = False
 distanceA = 0
 counter = 0
-screen = pygame.display.set_mode((width,height))
+screen = pygame.display.set_mode((width + 1,height + 1))
 
 screen.fill((0,0,0))
 for item in path:
     pygame.display.flip()
     print(item)
     if item[2] == "up":
-        pygame.draw.rect(screen,(255,255,255),(item[0]*squareWidth,item[1] * squareLength-wallThick,squareWidth -wallThick,squareLength))
+        pygame.draw.rect(screen,(255,255,255),(item[0]*squareWidth+1,item[1] * squareLength-wallThick+1,squareWidth -wallThick,squareLength))
     elif item[2] == "down":
-        pygame.draw.rect(screen,(255,255,255),(item[0]*squareWidth,item[1] * squareLength,squareWidth -wallThick,squareLength))
+        pygame.draw.rect(screen,(255,255,255),(item[0]*squareWidth+1,item[1] * squareLength+1,squareWidth -wallThick,squareLength))
     elif item[2] == "left":
-        pygame.draw.rect(screen,(255,255,255),(item[0]*squareWidth,item[1] * squareLength,squareWidth,squareLength-wallThick))
+        pygame.draw.rect(screen,(255,255,255),(item[0]*squareWidth+1,item[1] * squareLength+1,squareWidth,squareLength-wallThick))
     elif item[2] == "right":
-        pygame.draw.rect(screen,(255,255,255),(item[0]*squareWidth - wallThick,item[1] * squareLength,squareWidth,squareLength-wallThick))
+        pygame.draw.rect(screen,(255,255,255),(item[0]*squareWidth + 1 - wallThick,item[1] * squareLength + 1,squareWidth,squareLength-wallThick))
     else:
-        pygame.draw.rect(screen,(255,255,255),(item[0]*squareWidth,item[1] * squareLength,squareWidth,squareLength -wallThick))
+        pygame.draw.rect(screen,(255,255,255),(item[0]*squareWidth + 1,item[1] * squareLength + 1,squareWidth,squareLength -wallThick))
     for event in pygame.event.get():
         if event.type == pygame.constants.QUIT:
             done = True
